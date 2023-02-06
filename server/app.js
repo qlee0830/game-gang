@@ -1,14 +1,18 @@
 const express = require("express");
+const morgan = require("morgan");
+
 const app = express();
+const gamesRouter = require("./routes/gamesRoutes");
 
 // middlewares
-app.use("/", (req, res, next) => {
-  res.status(200).json({ message: "Hello from server side!", status: "200" });
+app.use(morgan("dev"));
+app.use(express.json());
+app.use((req, res, next) => {
+  console.log("Hi from middleware");
+  next();
 });
 
 // routes
+app.use("/api/games", gamesRouter);
 
-const port = process.env.PORT || 8000;
-app.listen(port, () => {
-  console.log(`Server running on ${port}`);
-});
+module.exports = app;

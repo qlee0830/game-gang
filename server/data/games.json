@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "name": "Dota 2",
+    "release_date": "2013-07-09",
+    "company": "Valve Corporation",
+    "description": "Dota 2 is a multiplayer online battle arena (MOBA) game in which two teams of five players compete to destroy the enemy's Ancient structure. Players select from a pool of over 100 heroes, each with unique abilities, and must work together to defeat the enemy team.",
+    "total_users_in_millions": 11
+  },
+  {
+    "id": 2,
+    "name": "Team Fortress 2",
+    "release_date": "2007-10-10",
+    "company": "Valve Corporation",
+    "description": "Team Fortress 2 is a team-based first-person shooter game. Players choose from one of nine classes, each with their own unique abilities and play styles, and work together to complete objectives and defeat the enemy team.",
+    "total_users_in_millions": 8
+  },
+  {
+    "id": 3,
+    "name": "Counter-Strike: Global Offensive",
+    "release_date": "2012-08-21",
+    "company": "Valve Corporation",
+    "description": "Counter-Strike: Global Offensive is a first-person shooter game in which two teams, Terrorists and Counter-Terrorists, compete to complete objectives or eliminate the enemy team. The game features a variety of weapons and game modes.",
+    "total_users_in_millions": 21
+  },
+  {
+    "id": 4,
+    "name": "PUBG",
+    "release_date": "2017-03-23",
+    "company": "PUBG Corporation",
+    "description": "PUBG is a battle royale game in which up to 100 players parachute onto an island and scavenge for weapons and equipment to eliminate other players and be the last one standing. The shrinking play zone adds tension to the game.",
+    "total_users_in_millions": 70
+  },
+  {
+    "id": 5,
+    "name": "Apex Legends",
+    "release_date": "2019-02-04",
+    "company": "Respawn Entertainment",
+    "description": "Apex Legends is a battle royale game set in the Titanfall universe. Players choose from a roster of Legends, each with their own unique abilities, and work together to be the last team standing. The game features a variety of weapons and game modes.",
+    "total_users_in_millions": 70
+  },
+  {
+    "id": 6,
+    "name": "Grand Theft Auto V",
+    "release_date": "2013-09-17",
+    "company": "Rockstar North",
+    "description": "Grand Theft Auto V is an open-world action-adventure game set in the fictional city of Los Santos. Players control three characters and can switch between them at will, completing missions and engaging in criminal activities.",
+    "total_users_in_millions": 110
+  },
+  {
+    "id": 7,
+    "name": "PlayerUnknown's Battlegrounds",
+    "release_date": "2017-03-23",
+    "company": "PUBG Corporation",
+    "description": "PlayerUnknown's Battlegrounds is a battle royale game in which up to 100 players parachute onto an island and scavenge for weapons and equipment to eliminate other players and be the last one standing. The shrinking play zone adds tension to the game.",
+    "total_users_in_millions": 70
+  },
+  {
+    "id": 8,
+    "name": "Overwatch",
+    "release_date": "2016-05-24",
+    "company": "Blizzard Entertainment",
+    "description": "Overwatch is a team-based first-person shooter game set in a futuristic world. Players choose from a roster of heroes, each with their own unique abilities and play styles, and work together to complete objectives and defeat the enemy team.",
+    "total_users_in_millions": 50
+  },
+  {
+    "id": 9,
+    "name": "Rainbow Six Siege",
+    "release_date": "2015-12-01",
+    "company": "Ubisoft Montreal",
+    "description": "Rainbow Six Siege is a tactical shooter game in which two teams of five players compete to complete objectives or eliminate the enemy team. The game features destructible environments and a variety of operators, each with their own unique gadgets and abilities.",
+    "total_users_in_millions": 70
+  },
+  {
+    "id": 10,
+    "name": "Fortnite",
+    "release_date": "2017-07-25",
+    "company": "Epic Games",
+    "description": "Fortnite is a battle royale game in which up to 100 players parachute onto an island and scavenge for weapons and equipment to eliminate other players and be the last one standing. The game features a building mechanic that adds a unique twist to the genre.",
+    "total_users_in_millions": 350
+  },
+  {
+    "id": 11,
+    "name": "Rocket League",
+    "release_date": "2015-07-07",
+    "company": "Psyonix",
+    "description": "Rocket League is a high-powered hybrid of arcade-style soccer and vehicular mayhem. Players control rocket-powered cars and compete in fast-paced, high-flying matches.",
+    "total_users_in_millions": 40
+  },
+  {
+    "id": 12,
+    "name": "Minecraft",
+    "release_date": "2011-11-18",
+    "company": "Mojang Studios",
+    "description": "Minecraft is a sandbox game in which players can build structures and explore a procedurally generated world made of blocks. The game features survival and creative modes.",
+    "total_users_in_millions": 200
+  },
+  {
+    "id": 13,
+    "name": "Minions",
+    "release_date": "2012-09-30",
+    "company": "my company",
+    "description": "minions fight bananas",
+    "total_users_in_millions": 10
+  }
+]
