@@ -36,5 +36,5 @@ const gangSchema = new mongoose.Schema({
   },
 });
 
-const gang = mongoose.model("gang", gangSchema);
-module.exports = gang;
+const Gang = mongoose.model("gang", gangSchema);
+module.exports = Gang;
