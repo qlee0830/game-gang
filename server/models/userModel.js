@@ -1,3 +1,4 @@
+const crypto = require("crypto");
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcrypt");
@@ -36,6 +37,9 @@ const userSchema = new mongoose.Schema({
       message: "Passwords are not the same.",
     },
   },
+  password_changed_at: Date,
+  password_reset_token: String,
+  password_reset_expires: Date,
 });
 
 userSchema.pre("save", async function (next) {
@@ -53,6 +57,32 @@ userSchema.methods.correctPassword = async function (
   userPassword
 ) {
   return await bcrypt.compare(candidatePassword, userPassword);
+};
+
+userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
+  if (this.password_changed_at) {
+    const changedTimestamp = parseInt(
+      this.password_changed_at.getTime() / 1000,
+      10
+    );
+    console.log(changedTimestamp, JWTTimestamp);
+    return JWTTimestamp < changedTimestamp;
+  }
+
+  return false; // False means NOT changed
+};
+
+userSchema.methods.createPasswordResetToken = function () {
+  const resetToken = crypto.randomBytes(32).toString("hex");
+
+  this.password_reset_token = crypto
+    .createHash("sha256")
+    .update(resetToken)
+    .digest("hex");
+  console.log({ resetToken }, this.password_reset_token);
+  this.password_reset_expires = Date.now() + 10 * 60 * 1000;
+
+  return resetToken;
 };
 
 const User = new mongoose.model("user", userSchema);
