@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <div>
+      <div className="">
         <nav>
           <div></div>
-          <ul>
+          <ul className="flex justify-between">
             <li>
               <Link />
             </li>
