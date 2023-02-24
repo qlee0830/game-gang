@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 
 const Contacts = () => {
   return (
-    <div>
-      <p>Contact Us:</p>
+    <div className="flex flex-col">
+      <p className="bg-blue__text w-fit text-black p-1 rounded-xl my-2">
+        Contact Us:
+      </p>
       <p>
         Email:{" "}
         <Link to="/mail/admin@ggang.com" className="text-blue">
