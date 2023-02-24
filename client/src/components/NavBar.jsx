@@ -19,7 +19,7 @@ const NavBar = () => {
           return (
             <li key={item.id} className="mx-5">
               <Link
-                className="hover:text-gray"
+                className="hover:text-white"
                 to={`/${item.name.toLowerCase()}`}
               >
                 {item.name}

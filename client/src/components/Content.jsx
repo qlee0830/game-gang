@@ -1,7 +1,13 @@
 import React from "react";
 
+import Slideshow from "./Slideshow";
+
 const Content = () => {
-  return <div className="flex flex-col">Body</div>;
+  return (
+    <div className="">
+      <Slideshow />
+    </div>
+  );
 };
 
 export default Content;

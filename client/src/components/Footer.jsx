@@ -1,6 +1,7 @@
 import React from "react";
 
-import { Contacts, SocialLinks } from "../components";
+import Contacts from "./Contacts";
+import SocialLinks from "./SocialLinks";
 
 const Footer = () => {
   return (
