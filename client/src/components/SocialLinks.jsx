@@ -14,22 +14,22 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const platforms = [
-  { name: faDiscord, link: "/discord.com" },
-  { name: faFacebook, link: "/facebook.com" },
-  { name: faTelegram, link: "/telegram.com" },
-  { name: faTiktok, link: "/tiktok.com" },
-  { name: faTwitter, link: "/twitter.com" },
-  { name: faTwitch, link: "/twitch.com" },
+  [faDiscord, "/discord.com"],
+  [faFacebook, "/facebook.com"],
+  [faTelegram, "/telegram.com"],
+  [faTiktok, "/tiktok.com"],
+  [faTwitter, "/twitter.com"],
+  [faTwitch, "/twitch.com"],
 ];
 
 const SocialLinks = () => {
   return (
     <div>
       <Container>
-        {platforms.map((platform) => {
+        {platforms.map(([icon, url], id) => {
           return (
-            <Link className="mx-2" to={platform.link}>
-              <FontAwesomeIcon className="w-7 h-7" icon={platform.name} />
+            <Link key={id} className="mx-2" to={url}>
+              <FontAwesomeIcon className="w-7 h-7" icon={icon} />
             </Link>
           );
         })}

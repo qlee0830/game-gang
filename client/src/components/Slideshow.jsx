@@ -21,7 +21,7 @@ const Slideshow = () => {
   }, [index]);
 
   return (
-    <div className="my-0 mx-auto overflow-hidden max-w-lg">
+    <div className="mx-20 my-10 overflow-hidden max-w-full">
       <div
         className="whitespace-nowrap ease-in duration-300"
         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}

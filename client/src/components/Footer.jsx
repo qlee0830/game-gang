@@ -5,7 +5,7 @@ import SocialLinks from "./SocialLinks";
 
 const Footer = () => {
   return (
-    <div className="flex h-fit items px-20 py-10 justify-between bg-black items-center">
+    <div className="flex h-fit w-screen px-20 py-10 justify-between bg-black items-center">
       <div className="flex">
         <SocialLinks />
       </div>
