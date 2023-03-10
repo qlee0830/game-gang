@@ -5,16 +5,16 @@ import { NavBar, Footer } from "../components";
 
 const Genres = () => {
   return (
-    <div className="flex flex-col justify-between text-blue__text bg-gray h-screen w-screen">
+    <div className="flex flex-col justify-between text-blue__text bg-gray h-fit w-screen">
       <NavBar />
 
-      <div className="flex flex-col mx-52 bg-black rounded-3xl p-5">
+      <div className="flex flex-col mx-52 p-5 content-center items-center">
         {/* 1. Browse Games horizontal menu */}
         <div className="flex flex-col">
-          <h1 className="text-white text-center text-3xl my-10">
+          <h1 className="text-white text-center text-3xl mb-10">
             Browse by Genres
           </h1>
-          <div className="flex bg-gray justify-center rounded-3xl">
+          <div className="flex bg-gradient-to-r from-sky to-indigo text-black w-screen justify-center">
             {[
               ["Action", "/action"],
               ["Adventure", "/adventure"],
@@ -24,7 +24,7 @@ const Genres = () => {
               return (
                 <Link
                   key={id}
-                  className="hover:bg-blue__text hover:text-black p-1 m-2 rounded-xl"
+                  className="hover:bg-blue__bg active:bg-purple text-white py-3 px-2"
                   to={url}
                 >
                   {title}
@@ -89,7 +89,7 @@ const Genres = () => {
                     </p>
                   </div>
                   <div className="flex flex-col m-2 text-white">
-                    <p className="p-2 my-1 border-2 border-red rounded-xl text-center font-bold">
+                    <p className="p-2 my-1 border-2 border-emerald rounded-xl text-center font-bold">
                       {title}
                     </p>
                     <p className="p-2 bg-white text-black">{description}</p>

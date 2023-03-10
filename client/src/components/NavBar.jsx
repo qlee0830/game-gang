@@ -11,14 +11,15 @@ const NavBar = () => {
 
   const navItems = [
     ["Home", "/home"],
-    ["About", "/about"],
-    ["Genres", "/genres"],
     ["Gangs", "/gangs"],
+    ["Genres", "/genres"],
+    ["Recruit", "/recruit"],
+    ["About", "/about"],
   ].map(([title, url], id) => {
     return (
       <Link
         key={id}
-        className="hover:bg-blue__text hover:text-black px-5"
+        className="hover:bg-blue__text hover:text-black px-3 rounded-full"
         to={url}
       >
         {title}
@@ -39,15 +40,17 @@ const NavBar = () => {
 
   return (
     <div className="flex bg-black h-fit w-screen justify-between px-20 py-10 items-center relative">
+      {/* 1. logo */}
       <div className="flex w-12 h-12">
         <img src={logo} alt="logo" />
       </div>
 
+      {/* 2. menu */}
       {windowWidth <= 1100 ? (
         <div className="flex flex-col">
           <Hamburger toggled={isOpen} toggle={setIsOpen} />
           {isOpen ? (
-            <div className="flex flex-col bg-white absolute ml-20">
+            <div className="flex flex-col bg-black absolute ml-20">
               {navItems}
             </div>
           ) : (
@@ -55,9 +58,12 @@ const NavBar = () => {
           )}
         </div>
       ) : (
-        <div className="flex font-medium font-mono text-lg">{navItems}</div>
+        <div className="flex gap-x-4 font-medium font-mono text-lg">
+          {navItems}
+        </div>
       )}
 
+      {/* 3. search  */}
       <div className="">
         <input
           className="bg-gray p-1 rounded-xl outline-0 focus:outline-blue__text"
@@ -65,6 +71,8 @@ const NavBar = () => {
           placeholder="Type anything..."
         />
       </div>
+
+      {/* 4. profile */}
       <div className="w-10 h-10">
         <img src={profileIcon} alt="profile icon" />
       </div>
