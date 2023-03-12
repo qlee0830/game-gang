@@ -1,14 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { NavBar, Footer } from "../components";
 
 const Genres = () => {
+  const [list, setList] = useState([]);
+
+  const handleViewItem = (id) => {};
+
+  useEffect(() => {
+    const options = {
+      method: "GET",
+      url: "https://free-to-play-games-database.p.rapidapi.com/api/games",
+      params: { "sort-by": "popularity" },
+      headers: {
+        "X-RapidAPI-Key": "3aa5f3b3b9mshc35f0da55255273p1d5be6jsnce84d8a4209c",
+        "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
+      },
+    };
+
+    axios
+      .request(options)
+      .then((res) => {
+        setList(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [list]);
+
   return (
-    <div className="flex flex-col justify-between text-blue__text bg-gray h-fit w-screen">
+    <div className="flex flex-col text-blue__text bg-gray w-screen">
       <NavBar />
 
-      <div className="flex flex-col mx-52 p-5 content-center items-center">
+      <div className="flex flex-col p-5 content-center items-center">
         {/* 1. Browse Games horizontal menu */}
         <div className="flex flex-col">
           <h1 className="text-white text-center text-3xl mb-10">
@@ -35,64 +61,44 @@ const Genres = () => {
         </div>
 
         {/* 2. list of trending games */}
-        <div className="flex bg-gray text-black my-5 p-5">
+        <div className="flex flex-wrap bg-gray text-black my-5 p-5 gap-x-8 gap-y-2">
           {/* title, image, clansTotal, playersTotal (in thousands), topClanLogo, description */}
-          {[
-            [
-              "Overwatch",
-              "ow.img",
-              10,
-              100,
-              "top-clan.jpg",
-              "Overwatch 2 is a team-based multiplayer first-person shooter developed and published by Blizzard Entertainment.",
-            ],
-            [
-              "Battlefield",
-              "bf.img",
-              22,
-              80,
-              "battle-g.jpg",
-              "Battlefields changing before your eyes. A cutting-edge arsenal at your disposal. The grand return of all-out warfare. Adapt and overcome in massive-scale 128 player battles* where dynamic storms, environmental hazards, total combat freedom, and Battlefield's signature destruction spark a new breed of Only in Battlefield moments.",
-            ],
-            [
-              "Minecraft",
-              "raft-base.img",
-              5,
-              200,
-              "top-survivors.jpg",
-              "Minecraft is a game about placing blocks and going on adventures. Explore the official site for the latest news and the community's amazing creations!",
-            ],
-          ].map(
+          {list.map(
             (
-              [
-                title,
-                image,
-                clansTotal,
-                playersTotal,
-                topClanLogo,
-                description,
-              ],
-              id
+              { id, title, short_description, platform, genre, thumbnail },
+              key
             ) => {
               return (
-                <div className="flex flex-col bg-black w-fit h-fit text-white m-2 rounded-xl">
+                <div
+                  key={key}
+                  className="bg-black flex flex-col w-fit h-fit text-white rounded-xl items-center gap-y-2 p-2"
+                >
                   {/* let the game image to be background image */}
 
-                  <div className="flex bg-gray justify-around m-4 p-2 rounded-xl items-center">
-                    Clans:{""}
-                    <p className="border-green border-2 rounded-full p-1 rounded-xl mr-5">
-                      {clansTotal}
-                    </p>
-                    Players:{""}
-                    <p className="border-green border-2 rounded-full p-1 rounded-xl">
-                      {playersTotal}
-                    </p>
-                  </div>
-                  <div className="flex flex-col m-2 text-white">
-                    <p className="p-2 my-1 border-2 border-emerald rounded-xl text-center font-bold">
+                  <div className="w-full flex flex-col justify-around p-2 rounded-xl items-left">
+                    <p className="p-1 rounded-xl mr-5 w-fit">ID: {id}</p>
+                    <p className="p-2 my-1 border-2 border-yellow rounded-xl text-center font-bold">
                       {title}
                     </p>
-                    <p className="p-2 bg-white text-black">{description}</p>
+                  </div>
+                  <div className="flex flex-col items-center w-80">
+                    <img src={thumbnail} alt="game img" />
+
+                    <p className="h-16 w-full p-2 bg-white text-ellipsis text-black inline-block">
+                      {short_description}
+                    </p>
+                  </div>
+                  <div className="flex w-full justify-between items-center">
+                    <div className="flex flex-col content-center p-2">
+                      <p>Platform: {platform}</p>
+                      <p>Genre: {genre}</p>
+                    </div>
+                    <button
+                      className="bg-gradient-to-r from-sky to-indigo p-2 rounded-full"
+                      onClick={handleViewItem(id)}
+                    >
+                      View
+                    </button>
                   </div>
                 </div>
               );
