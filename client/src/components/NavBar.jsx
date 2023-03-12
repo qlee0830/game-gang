@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Hamburger from "hamburger-react";
+import { BiSearchAlt } from "react-icons/bi";
 
 import profileIcon from "../images/profile.jpeg";
 import logo from "../images/logo.jpeg";
@@ -39,7 +40,7 @@ const NavBar = () => {
   }, []);
 
   return (
-    <div className="flex bg-black h-fit w-screen justify-between px-20 py-10 items-center relative">
+    <div className="flex bg-black h-fit w-screen justify-between px-5 py-2 items-center relative">
       {/* 1. logo */}
       <div className="flex w-12 h-12">
         <img src={logo} alt="logo" />
@@ -47,15 +48,8 @@ const NavBar = () => {
 
       {/* 2. menu */}
       {windowWidth <= 1100 ? (
-        <div className="flex flex-col">
+        <div className="flex content-center">
           <Hamburger toggled={isOpen} toggle={setIsOpen} />
-          {isOpen ? (
-            <div className="flex flex-col bg-black absolute ml-20">
-              {navItems}
-            </div>
-          ) : (
-            ""
-          )}
         </div>
       ) : (
         <div className="flex gap-x-4 font-medium font-mono text-lg">
@@ -63,13 +57,21 @@ const NavBar = () => {
         </div>
       )}
 
+      {/* 2a. open menu on mobile view */}
+      {isOpen && windowWidth <= 1100 && (
+        <div className="flex flex-col bg-black absolute mt-44 ml-20">
+          {navItems}
+        </div>
+      )}
+
       {/* 3. search  */}
-      <div className="">
+      <div className="flex items-center relative">
         <input
-          className="bg-gray p-1 rounded-xl outline-0 focus:outline-blue__text"
+          className="bg-gray p-1 mx-1 rounded-xl outline-0 focus:outline-blue__text"
           type="text"
           placeholder="Type anything..."
         />
+        <BiSearchAlt className="absolute right-2" />
       </div>
 
       {/* 4. profile */}
