@@ -1,20 +1,40 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { Home, About, Genres, Gangs, SignIn, Register, Recruit } from "./pages";
+import {
+  Home,
+  About,
+  Games,
+  Gangs,
+  SignIn,
+  Register,
+  Recruit,
+  GameItem,
+  Settings,
+  Profile,
+  MyGang,
+} from "./pages";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Home />}></Route>
-        <Route path="/home" element={<Home />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/genres" element={<Genres />}></Route>
-        <Route path="/gangs" element={<Gangs />}></Route>
-        <Route path="/signin" element={<SignIn />}></Route>
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/recruit" element={<Recruit />}></Route>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/games">
+          <Route index element={<Games />} />
+          <Route path=":gameId" element={<GameItem />} />
+        </Route>
+        <Route path="/gangs">
+          <Route index element={<Gangs />} />
+          <Route path="my-gang" element={<MyGang />} />
+        </Route>
+        <Route path="/recruit" element={<Recruit />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
     </Router>
   );

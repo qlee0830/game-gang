@@ -1,9 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import { NavBar, Footer } from "../components";
 import Avartar from "../images/avartar.png";
+import { login } from "../redux/authSlice";
 
 const SignIn = () => {
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [validEmail, setValidEmail] = useState(true);
@@ -24,11 +31,14 @@ const SignIn = () => {
       ? setValidEmail(false)
       : setValidEmail(true);
     password.length < 8 ? setValidPW(false) : setValidPW(true);
+
+    if (validEmail && validPW) {
+      dispatch(login());
+      navigate("/home");
+    }
   };
 
   const forgotPassword = () => {};
-
-  useEffect(() => {}, []);
 
   return (
     <div className="flex flex-col min-h-screen min-w-screen justify-between items-center bg-gray text-blue__text no-underline">

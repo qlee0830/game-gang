@@ -10,12 +10,14 @@ module.exports = {
       white: "#FFFFFF",
       green: "#22c55e",
       red: "#dc2626",
-      yellow: "#FFD700",
+      yellow: "#facc15",
       violet: "#7c3aed",
       emerald: "#10b981",
       sky: "#0ea5e9",
       indigo: "#6366f1",
       purple: "#a855f7",
+      pink: "#f472b6",
+      rose: "#f43f5e",
     },
     translate: {
       // defaults to {}

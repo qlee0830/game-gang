@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import { NavBar, Footer } from "../components";
+import { NavBar, Footer, Modal } from "../components";
 
-const Genres = () => {
+const Games = () => {
   const [list, setList] = useState([]);
-
-  const handleViewItem = (id) => {};
+  const [showModal, setShowModal] = useState(false);
+  const [modalItem, setModalItem] = useState(undefined);
 
   useEffect(() => {
     const options = {
@@ -32,6 +32,10 @@ const Genres = () => {
 
   return (
     <div className="flex flex-col text-blue__text bg-gray w-screen">
+      {showModal && (
+        <Modal item={modalItem} onClose={() => setShowModal(false)} />
+      )}
+
       <NavBar />
 
       <div className="flex flex-col p-5 content-center items-center">
@@ -75,9 +79,9 @@ const Genres = () => {
                 >
                   {/* let the game image to be background image */}
 
-                  <div className="w-full flex flex-col justify-around p-2 rounded-xl items-left">
+                  <div className="w-full flex items-center justify-between p-2">
                     <p className="p-1 rounded-xl mr-5 w-fit">ID: {id}</p>
-                    <p className="p-2 my-1 border-2 border-yellow rounded-xl text-center font-bold">
+                    <p className="p-2 my-1 text-center font-bold italic">
                       {title}
                     </p>
                   </div>
@@ -94,8 +98,18 @@ const Genres = () => {
                       <p>Genre: {genre}</p>
                     </div>
                     <button
-                      className="bg-gradient-to-r from-sky to-indigo p-2 rounded-full"
-                      onClick={handleViewItem(id)}
+                      className="bg-gradient-to-r from-pink to-rose p-2 rounded-full"
+                      onClick={() => {
+                        setModalItem({
+                          id,
+                          title,
+                          short_description,
+                          platform,
+                          genre,
+                          thumbnail,
+                        });
+                        setShowModal(true);
+                      }}
                     >
                       View
                     </button>
@@ -112,4 +126,4 @@ const Genres = () => {
   );
 };
 
-export default Genres;
+export default Games;
