@@ -1,18 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [];
-
 export const gameSlice = createSlice({
   name: "game",
-  initialState,
+  initialState: [],
   reducers: {
     addGame: (state, action) => {
       const newGame = {
-        id: Math.random(),
-        title: "Overwatch",
-        genre: "Action",
+        id: "",
+        title: "",
+        short_description: "",
+        platform: "",
+        genre: "",
+        thumbnail: "",
       };
-
       state.push(newGame);
     },
 
@@ -23,9 +23,11 @@ export const gameSlice = createSlice({
     modifyGame: (state, action) => {
       return {};
     },
+
+    filterGames: (state, action) => {},
   },
 });
 
-export const { addGame, deleteGame, modifyGame } = gameSlice.actions;
+export const { setList, addGame, deleteGame, modifyGame } = gameSlice.actions;
 
 export default gameSlice.reducer;

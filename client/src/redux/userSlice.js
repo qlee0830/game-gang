@@ -7,12 +7,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     addUser: (state, action) => {
-      const newUser = {
-        id: Math.random(),
-        name: "Quoc ly",
-        email: "qp93@ggang.com",
-      };
-
+      const newUser = action.payload;
       state.push(newUser);
     },
 
